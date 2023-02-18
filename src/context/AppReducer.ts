@@ -1,0 +1,15 @@
+import { Actions, transactionProps } from './GlobalState';
+
+const AppReducer = (state:transactionProps, action:Actions) => {
+  switch(action.type) {
+    case "DELETE_TRANSACTION":
+        return {
+            ...state,
+            transactions:state.transactions.filter((transaction) => transaction.id !== action.payload)
+        }
+    default:
+        return state;
+  }
+}
+
+export default AppReducer
